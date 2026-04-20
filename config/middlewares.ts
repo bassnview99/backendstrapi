@@ -1,12 +1,17 @@
 export default [
   'strapi::logger',
   'strapi::errors',
-  
   'strapi::security',
-  'strapi::cors', config: {
+  {
+    name: 'strapi::cors',
+    config: {
       enabled: true,
-      origin: ['*'], // Permite peticiones desde cualquier dominio
+      origin: ['*'], // Esto permite cualquier origen
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      keepHeaderOnError: true,
     },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
