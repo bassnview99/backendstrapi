@@ -1,8 +1,12 @@
 export default [
   'strapi::logger',
   'strapi::errors',
+  
   'strapi::security',
-  'strapi::cors',
+  'strapi::cors', config: {
+      enabled: true,
+      origin: ['*'], // Permite peticiones desde cualquier dominio
+    },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
