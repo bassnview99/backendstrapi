@@ -1,18 +1,28 @@
-export default [
-  'strapi::logger',
+ module.exports = [
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'confident-book-2bd9a84a38.strapiapp.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'confident-book-2bd9a84a38.strapiapp.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   {
     name: 'strapi::cors',
     config: {
-      enabled: true,
-      origin: ['*'], // Esto permite cualquier origen
+      origin: ['https://laabejitamanufactura.vercel.app', 'http://localhost:3000'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       keepHeaderOnError: true,
     },
   },
-  'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
   'strapi::session',
