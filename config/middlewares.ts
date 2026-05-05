@@ -1,4 +1,4 @@
- module.exports = [
+module.exports = [
   'strapi::errors',
   {
     name: 'strapi::security',
@@ -7,8 +7,18 @@
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'confident-book-2bd9a84a38.strapiapp.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'confident-book-2bd9a84a38.strapiapp.com'],
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'https://confident-book-2bd9a84a38.strapiapp.com',
+          ],
+          'media-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'https://confident-book-2bd9a84a38.strapiapp.com',
+          ],
           upgradeInsecureRequests: null,
         },
       },
@@ -17,10 +27,20 @@
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://laabejitamanufactura.vercel.app', 'http://localhost:3000'],
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-      keepHeaderOnError: true,
+      origin: [
+        'https://laabejitamanufactura.vercel.app',
+        'http://localhost:3000',
+        /\.vercel\.app$/, // 🔥 clave para previews de Vercel
+      ],
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+      headers: [
+        'Content-Type',
+        'Authorization',
+        'Origin',
+        'Accept',
+        'X-Requested-With',
+      ],
+      credentials: true, // 🔥 importante
     },
   },
   'strapi::query',
