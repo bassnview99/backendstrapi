@@ -18,6 +18,9 @@
       "type": "uid",
       "targetField": "productName"
     },
+    "size": {
+      "type": "enum",
+      
     "description": {
       "type": "text"
     },
@@ -31,13 +34,25 @@
         "audios"
       ]
     },
+    "brand":{
+      "type": "text"
+    }
+
     "active": {
       "type": "boolean",
       "required": false,
       "default": true
     },
-    "price": {
-      "type": "biginteger"
+    
+    "size": {
+     "type": "enumeration",
+      "enum": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"]
     },
     "origin": {
       "type": "enumeration",
