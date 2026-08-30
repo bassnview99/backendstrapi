@@ -44,16 +44,7 @@
       "default": true
     },
     
-    "size": {
-     "type": "enumeration",
-      "enum": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"]
-    },
+    
     "origin": {
       "type": "enumeration",
       "enum": [
