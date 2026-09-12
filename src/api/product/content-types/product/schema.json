@@ -1,3 +1,4 @@
+
 {
   "kind": "collectionType",
   "collectionName": "products",
@@ -19,8 +20,13 @@
       "targetField": "productName"
     },
     "size": {
-      "type": "enum",
-      
+      "type": "enumeration",
+      "enum": [
+        "Small",
+        "Medium",
+        "Large"
+      ]
+    },
     "description": {
       "type": "text"
     },
@@ -34,17 +40,14 @@
         "audios"
       ]
     },
-    "brand":{
+    "brand": {
       "type": "text"
-    }
-
+    },
     "active": {
       "type": "boolean",
       "required": false,
       "default": true
     },
-    
-    
     "origin": {
       "type": "enumeration",
       "enum": [
