@@ -38,7 +38,7 @@
         "files",
         "videos",
         "audios"
-      ]
+      ],
     },
     "brand": {
       "type": "text"
@@ -64,6 +64,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
-    }
+    },
   }
 }
